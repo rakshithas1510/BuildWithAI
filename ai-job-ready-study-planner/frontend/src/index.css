@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Light mode (fallback, app is dark-first) */
+    --background: 0.18 0.005 240;
+    --foreground: 0.95 0.005 240;
+    --card: 0.22 0.005 240;
+    --card-foreground: 0.95 0.005 240;
+    --popover: 0.22 0.005 240;
+    --popover-foreground: 0.95 0.005 240;
+    --primary: 0.82 0.22 145;
+    --primary-foreground: 0.12 0.01 240;
+    --secondary: 0.28 0.005 240;
+    --secondary-foreground: 0.95 0.005 240;
+    --muted: 0.28 0.005 240;
+    --muted-foreground: 0.55 0.01 240;
+    --accent: 0.28 0.005 240;
+    --accent-foreground: 0.95 0.005 240;
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.30 0.005 240;
+    --input: 0.28 0.005 240;
+    --ring: 0.82 0.22 145;
+    --chart-1: 0.82 0.22 145;
+    --chart-2: 0.62 0.18 200;
+    --chart-3: 0.72 0.15 60;
+    --chart-4: 0.65 0.20 280;
+    --chart-5: 0.62 0.22 25;
+    --sidebar: 0.20 0.005 240;
+    --sidebar-foreground: 0.95 0.005 240;
+    --sidebar-primary: 0.82 0.22 145;
+    --sidebar-primary-foreground: 0.12 0.01 240;
+    --sidebar-accent: 0.28 0.005 240;
+    --sidebar-accent-foreground: 0.95 0.005 240;
+    --sidebar-border: 0.30 0.005 240;
+    --sidebar-ring: 0.82 0.22 145;
+  }
+
+  .dark {
+    --background: 0.14 0.005 240;
+    --foreground: 0.95 0.005 240;
+    --card: 0.18 0.005 240;
+    --card-foreground: 0.95 0.005 240;
+    --popover: 0.20 0.005 240;
+    --popover-foreground: 0.95 0.005 240;
+    --primary: 0.82 0.22 145;
+    --primary-foreground: 0.12 0.01 240;
+    --secondary: 0.24 0.005 240;
+    --secondary-foreground: 0.95 0.005 240;
+    --muted: 0.24 0.005 240;
+    --muted-foreground: 0.55 0.01 240;
+    --accent: 0.24 0.005 240;
+    --accent-foreground: 0.95 0.005 240;
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.28 0.005 240;
+    --input: 0.24 0.005 240;
+    --ring: 0.82 0.22 145;
+    --chart-1: 0.82 0.22 145;
+    --chart-2: 0.62 0.18 200;
+    --chart-3: 0.72 0.15 60;
+    --chart-4: 0.65 0.20 280;
+    --chart-5: 0.62 0.22 25;
+    --sidebar: 0.18 0.005 240;
+    --sidebar-foreground: 0.95 0.005 240;
+    --sidebar-primary: 0.82 0.22 145;
+    --sidebar-primary-foreground: 0.12 0.01 240;
+    --sidebar-accent: 0.24 0.005 240;
+    --sidebar-accent-foreground: 0.95 0.005 240;
+    --sidebar-border: 0.28 0.005 240;
+    --sidebar-ring: 0.82 0.22 145;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  .shadow-neon-sm {
+    box-shadow: 0 0 12px oklch(0.82 0.22 145 / 0.25), 0 0 4px oklch(0.82 0.22 145 / 0.15);
+  }
+
+  .shadow-neon {
+    box-shadow: 0 0 24px oklch(0.82 0.22 145 / 0.35), 0 0 8px oklch(0.82 0.22 145 / 0.20);
+  }
+
+  .text-neon {
+    color: oklch(0.82 0.22 145);
+  }
+
+  .bg-neon {
+    background-color: oklch(0.82 0.22 145);
+  }
+
+  .border-neon {
+    border-color: oklch(0.82 0.22 145);
+  }
+
+  .bg-charcoal {
+    background-color: oklch(0.14 0.005 240);
+  }
+
+  .text-charcoal {
+    color: oklch(0.14 0.005 240);
+  }
+
+  .bg-surface {
+    background-color: oklch(0.18 0.005 240);
+  }
+
+  .bg-surface-2 {
+    background-color: oklch(0.22 0.005 240);
+  }
+}
