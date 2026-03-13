@@ -1,0 +1,220 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 15,
+  "summary": "AI-powered study planner app to help users get job-ready by planning and tracking their learning journey.",
+  "architectural_notes": [],
+  "known_issues": [
+    "Job readiness score/ring is not visible to the user on the dashboard or skill gap pages"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-build-a-multi-step-onboarding-flow-in-the-frontend-where-the-user-enters-1-their-target-job-role-from-a-dropdown-of-common-roles-2-their-current-skills-tag-style-multi-input-and-3-weekly-study-hours-available-on-completion-call-the-backend-to-save-the-profile-and-generate-a-study-plan",
+      "title": "Build a multi-step onboarding flow in the frontend where the user enters: (1) their target job role (from a dropdown of common roles), (2) their current skills (tag-style multi-input), and (3) weekly study hours available. On completion, call the backend to save the profile and generate a study plan.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-main-dashboard-page-showing-a-job-readiness-score-ring-progress-chart-a-summary-of-weekly-study-progress-upcoming-tasks-for-today-and-quick-access-cards-for-each-major-section-study-plan-skill-gap-schedule",
+      "title": "Build a main dashboard page showing: a job readiness score ring/progress chart, a summary of weekly study progress, upcoming tasks for today, and quick-access cards for each major section (Study Plan, Skill Gap, Schedule).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-study-plan-page-that-displays-the-full-multi-week-plan-in-an-accordion-or-tab-layout-organized-by-week-each-week-expands-to-show-daily-tasks-users-can-mark-individual-tasks-as-complete-which-updates-the-backend-and-recalculates-progress",
+      "title": "Build a Study Plan page that displays the full multi-week plan in an accordion or tab layout organized by week. Each week expands to show daily tasks. Users can mark individual tasks as complete, which updates the backend and recalculates progress.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-skill-gap-analysis-page-that-fetches-and-visualizes-the-gap-between-the-user-s-current-skills-and-the-required-skills-for-their-target-job-role-display-matched-skills-missing-skills-and-an-overall-readiness-score",
+      "title": "Build a Skill Gap Analysis page that fetches and visualizes the gap between the user's current skills and the required skills for their target job role. Display matched skills, missing skills, and an overall readiness score.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-visual-theme-throughout-the-app-using-a-dark-charcoal-and-electric-green-color-palette-with-clean-sans-serif-typography-card-based-layouts-and-subtle-glowing-accents-conveying-a-modern-tech-forward-career-tool-aesthetic",
+      "title": "Apply a cohesive visual theme throughout the app using a dark charcoal and electric green color palette with clean sans-serif typography, card-based layouts, and subtle glowing accents — conveying a modern, tech-forward career tool aesthetic.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-the-generated-static-image-assets-from-frontend-public-assets-generated-in-the-appropriate-ui-locations-app-logo-in-the-header-hero-illustration-on-the-dashboard",
+      "title": "Render the generated static image assets from frontend/public/assets/generated in the appropriate UI locations (app logo in the header, hero illustration on the dashboard).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-the-branding-text-skyllx-at-the-bottom-right-corner-of-the-application-layout-it-should-be-visible-on-all-pages-styled-to-match-the-existing-dark-charcoal-and-electric-green-theme-using-a-subtle-but-legible-typographic-treatment-e-g-small-caps-or-light-weight-with-a-neon-green-accent",
+      "title": "Display the branding text 'skyllx' at the bottom right corner of the application layout. It should be visible on all pages, styled to match the existing dark charcoal and electric green theme, using a subtle but legible typographic treatment (e.g., small caps or light weight with a neon green accent).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-footer-in-applayout-tsx-to-display-the-following-text-exactly-2026-skyllx-jobready-ai-all-rights-reserved-on-the-first-line-and-built-with-using-caffeine-ai-on-the-second-line-matching-the-layout-and-styling-shown-in-the-uploaded-image-dark-background-grey-copyright-text-green-heart-and-green-caffeine-ai-link-text-remove-or-replace-any-existing-footer-branding-content-that-conflicts-with-this-layout",
+      "title": "Update the footer in AppLayout.tsx to display the following text exactly: '© 2026   Skyllx  JobReady AI. All rights reserved.' on the first line, and 'Built with ♥ using caffeine.ai' on the second line — matching the layout and styling shown in the uploaded image (dark background, grey copyright text, green heart and green 'caffeine.ai' link text). Remove or replace any existing footer/branding content that conflicts with this layout.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-all-instances-of-job-ready-jobready-or-job-ready-app-name-branding-text-in-the-frontend-including-applayout-tsx-header-page-titles-and-any-other-visible-ui-locations-with-skyllx",
+      "title": "Replace all instances of 'Job Ready', 'JobReady', or 'Job-Ready' app name/branding text in the frontend (including AppLayout.tsx header, page titles, and any other visible UI locations) with 'Skyllx'.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-app-logo-in-the-header-with-the-user-provided-skyllx-logo-image-skyllx-logo-dim-200x80-png-which-shows-the-skyllx-wordmark-with-a-navy-blue-and-orange-color-scheme-render-it-as-a-static-asset-from-frontend-public-assets-generated",
+      "title": "Replace the current app logo in the header with the user-provided Skyllx logo image (skyllx-logo.dim_200x80.png), which shows the Skyllx wordmark with a navy blue and orange color scheme. Render it as a static asset from frontend/public/assets/generated/.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-job-readiness-score-displayed-in-the-readinessscorering-component-on-the-dashboard-and-skill-gap-pages-so-it-reflects-real-calculated-progress-the-score-must-be-derived-from-the-user-s-actual-task-completion-rate-in-the-study-plan-completed-tasks-total-tasks-100-replacing-the-static-0-shown-in-the-uploaded-screenshot-the-ring-color-should-transition-from-red-amber-green-as-the-score-increases-0-33-red-34-66-amber-67-100-green-and-the-label-beneath-the-percentage-should-read-ready",
+      "title": "Update the Job Readiness score displayed in the ReadinessScoreRing component on the Dashboard and Skill Gap pages so it reflects real, calculated progress. The score must be derived from the user's actual task completion rate in the study plan (completed tasks / total tasks × 100), replacing the static 0% shown in the uploaded screenshot. The ring color should transition from red → amber → green as the score increases (0–33% red, 34–66% amber, 67–100% green), and the label beneath the percentage should read 'Ready'.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-investigate-and-fix-the-something-went-wrong-please-try-again-error-shown-in-the-readinessscorering-component-on-the-dashboard-and-skill-gap-pages-the-error-indicates-that-the-getreadinessscore-backend-call-is-failing-or-the-component-is-rendering-an-error-state-ensure-the-query-gracefully-handles-cases-where-no-study-plan-exists-returning-0-instead-of-throwing-and-that-the-ring-and-score-percentage-are-always-visible-to-the-user",
+      "title": "Investigate and fix the 'Something went wrong. Please try again.' error shown in the ReadinessScoreRing component on the Dashboard and Skill Gap pages. The error indicates that the `getReadinessScore` backend call is failing or the component is rendering an error state. Ensure the query gracefully handles cases where no study plan exists (returning 0 instead of throwing), and that the ring and score percentage are always visible to the user.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-readinessscorering-component-so-it-is-always-visible-on-the-dashboard-and-skill-gap-pages-the-ring-must-render-the-score-percentage-and-svg-ring-at-all-times-including-when-the-user-has-no-study-plan-display-0-when-the-query-is-loading-show-a-skeleton-and-when-a-backend-error-occurs-fall-back-to-0-silently-without-showing-an-error-message-remove-any-error-boundary-or-conditional-rendering-path-that-hides-the-ring-or-shows-something-went-wrong-please-try-again",
+      "title": "Fix the ReadinessScoreRing component so it is always visible on the Dashboard and Skill Gap pages. The ring must render the score percentage and SVG ring at all times — including when the user has no study plan (display 0%), when the query is loading (show a skeleton), and when a backend error occurs (fall back to 0% silently without showing an error message). Remove any error boundary or conditional rendering path that hides the ring or shows 'Something went wrong. Please try again.'",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-usequeries-ts-update-the-usegetreadinessscore-react-query-hook-so-that-any-thrown-error-or-rejected-promise-from-the-backend-is-caught-and-resolved-as-0-rather-than-propagating-to-an-error-state-set-retry-false-and-use-an-onerror-or-select-handler-to-default-to-0-on-failure",
+      "title": "In `useQueries.ts`, update the `useGetReadinessScore` React Query hook so that any thrown error or rejected promise from the backend is caught and resolved as 0 rather than propagating to an error state. Set `retry: false` and use an `onError` or `select` handler to default to 0 on failure.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "AI-generated personalized study plan based on target job/role",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Job readiness tracker showing progress toward career goals",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Daily/weekly study schedule with task management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Skill gap analysis based on job requirements",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create a backend actor in Motoko that stores user profiles including their target job role, current skills, and study goals. Provide functions to create/read/update a user profile.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Create a backend data model and functions for a structured study plan. A study plan consists of weekly modules, each containing daily tasks with a title, description, estimated duration, completion status, and associated skill. Provide functions to generate a default plan from a job role, fetch the plan, and mark tasks as complete.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Create a backend skill gap analysis model. Store a list of required skills for common job roles and compare them against the user's current skills to compute missing skills and a readiness score (0–100%). Expose a function that returns the gap analysis result for the user's target role.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Display branding text 'skyllx' at the bottom right of the UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Replace 'job ready' text with 'skyllx' branding and update the logo with the user-provided image",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Job readiness score should update periodically (every 4-5 minutes) based on user activity on the website and show progress",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Expose a backend query function `getReadinessScore` that computes and returns the user's current job readiness score as a Nat (0–100) based on the ratio of completed tasks to total tasks in their study plan. If no study plan exists, return 0. Use this function as the data source for the frontend readiness ring.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Audit the backend `getReadinessScore` function in `backend/main.mo` to ensure it never traps or returns an error when called by an authenticated user who has no study plan yet. It should return `0` as a Nat in all edge cases (missing profile, empty plan, zero tasks).",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Audit the `getReadinessScore` backend function in `backend/main.mo` to ensure it never traps or throws under any authenticated user scenario. It must return 0 as a Nat when the user has no profile, no study plan, or an empty task list. Add defensive null/empty checks for all intermediate data access paths.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "AI Job-Ready Study Planner",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

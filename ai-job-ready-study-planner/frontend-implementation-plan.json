@@ -1,0 +1,42 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix ReadinessScoreRing visibility issue on Dashboard and Skill Gap pages",
+  "requirements": [
+    {
+      "id": "REQ-18",
+      "summary": "Fix the ReadinessScoreRing component so it is always visible on the Dashboard and Skill Gap pages, displaying 0% when no study plan exists, showing a skeleton during loading, and falling back to 0% silently on backend errors without displaying error messages",
+      "acceptanceCriteria": [
+        "The ReadinessScoreRing SVG ring is visible on the Dashboard page at all times after page load.",
+        "The ReadinessScoreRing SVG ring is visible on the Skill Gap page at all times after page load.",
+        "When no study plan exists, the ring displays 0% with the 'Ready' label and no error message.",
+        "When the backend call fails or returns an error, the ring falls back to 0% without showing any error state to the user.",
+        "During loading, a skeleton placeholder is shown and transitions to the ring once data resolves.",
+        "The ring color follows the red/amber/green thresholds: 0–33% red, 34–66% amber, 67–100% green."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/dashboard/ReadinessScoreRing.tsx",
+          "operation": "modify",
+          "description": "Remove any error boundary or conditional rendering that hides the ring. Ensure the component always renders the SVG ring with score percentage at all times. When data is undefined or null, default to 0%. During loading state, display a skeleton placeholder that matches the ring's dimensions. Remove any error message display (e.g., 'Something went wrong. Please try again.'). Ensure the ring color follows red/amber/green thresholds: 0–33% red, 34–66% amber, 67–100% green. The component must handle three states: loading (skeleton), loaded (show score or 0%), and error (silently show 0%)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Update the useGetReadinessScore React Query hook in useQueries.ts to catch any thrown error or rejected promise from the backend and resolve it as 0 rather than propagating to an error state, with retry disabled",
+      "acceptanceCriteria": [
+        "The `useGetReadinessScore` hook never enters an `isError` state; it always resolves with a number (defaulting to 0 on failure).",
+        "No error is surfaced to UI components consuming this hook.",
+        "The hook does not retry failed backend calls, preventing repeated error loops."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Modify the useGetReadinessScore hook to prevent error propagation to consuming components. Set retry: false to disable retries. Wrap the queryFn in a try-catch block that returns 0 on any error. Alternatively, use a select function to transform any error result into 0. Ensure the hook always returns a valid number (0-100) and never enters an isError state. The hook should treat backend failures, traps, or rejected promises as silent failures that default to 0."
+        }
+      ]
+    }
+  ]
+}

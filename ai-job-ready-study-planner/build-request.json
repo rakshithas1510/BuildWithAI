@@ -1,0 +1,80 @@
+{
+  "kind": "build_request",
+  "title": "Fix ReadinessScoreRing visibility issue on Dashboard and Skill Gap pages",
+  "projectName": "Skyllx",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-18",
+      "text": "Fix the ReadinessScoreRing component so it is always visible on the Dashboard and Skill Gap pages. The ring must render the score percentage and SVG ring at all times — including when the user has no study plan (display 0%), when the query is loading (show a skeleton), and when a backend error occurs (fall back to 0% silently without showing an error message). Remove any error boundary or conditional rendering path that hides the ring or shows 'Something went wrong. Please try again.'",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "can reslove the issue and amke it wrk"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The ReadinessScoreRing SVG ring is visible on the Dashboard page at all times after page load.",
+        "The ReadinessScoreRing SVG ring is visible on the Skill Gap page at all times after page load.",
+        "When no study plan exists, the ring displays 0% with the 'Ready' label and no error message.",
+        "When the backend call fails or returns an error, the ring falls back to 0% without showing any error state to the user.",
+        "During loading, a skeleton placeholder is shown and transitions to the ring once data resolves.",
+        "The ring color follows the red/amber/green thresholds: 0–33% red, 34–66% amber, 67–100% green."
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Audit the `getReadinessScore` backend function in `backend/main.mo` to ensure it never traps or throws under any authenticated user scenario. It must return 0 as a Nat when the user has no profile, no study plan, or an empty task list. Add defensive null/empty checks for all intermediate data access paths.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "can reslove the issue and amke it wrk"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Calling `getReadinessScore` when no profile exists returns 0 without trapping.",
+        "Calling `getReadinessScore` when a profile exists but no study plan has been generated returns 0 without trapping.",
+        "Calling `getReadinessScore` when a study plan has 0 tasks returns 0 without a division-by-zero trap.",
+        "The function always returns a Nat between 0 and 100 inclusive."
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "In `useQueries.ts`, update the `useGetReadinessScore` React Query hook so that any thrown error or rejected promise from the backend is caught and resolved as 0 rather than propagating to an error state. Set `retry: false` and use an `onError` or `select` handler to default to 0 on failure.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "can reslove the issue and amke it wrk"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The `useGetReadinessScore` hook never enters an `isError` state; it always resolves with a number (defaulting to 0 on failure).",
+        "No error is surfaced to UI components consuming this hook.",
+        "The hook does not retry failed backend calls, preventing repeated error loops."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "Keep all Motoko logic in backend/main.mo (single-actor architecture).",
+    "Do not change the existing data models or schema in the backend."
+  ],
+  "nonGoals": [
+    "Adding new features or changing the readiness score calculation formula.",
+    "Redesigning the ReadinessScoreRing visual style beyond what is already implemented.",
+    "Changing any other dashboard or skill gap page components unrelated to the score ring."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

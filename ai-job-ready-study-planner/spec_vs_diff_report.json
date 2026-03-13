@@ -1,0 +1,23 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-26T04:56:34.137Z",
+  "summary": "The diff addresses all three requirements. REQ-18 is implemented in ReadinessScoreRing.tsx (always renders, skeleton on load, 0% fallback, red/amber/green thresholds). REQ-20 is implemented in useQueries.ts (retry: false, throwOnError: false, catch returns 0). REQ-19 (backend audit of getReadinessScore in backend/main.mo) is NOT evidenced in the diff — no backend file was modified.",
+  "missing_requirements": [
+    {
+      "id": "REQ-19",
+      "requirement": "Audit the getReadinessScore backend function in backend/main.mo to ensure it never traps or throws under any authenticated user scenario. It must return 0 as a Nat when the user has no profile, no study plan, or an empty task list. Add defensive null/empty checks for all intermediate data access paths.",
+      "reason": "No changes to backend/main.mo are present in the diff. The file is not listed among modified or added files, so the defensive null/empty checks and division-by-zero guard required by REQ-19 were not applied.",
+      "evidence": []
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.93,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/dashboard/ReadinessScoreRing.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/SkillGapPage.tsx",
+    "project_state.json"
+  ]
+}

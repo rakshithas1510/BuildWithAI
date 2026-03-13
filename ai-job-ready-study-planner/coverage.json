@@ -1,0 +1,57 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-26T04:56:34.140Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-18",
+        "summary": "Fix the ReadinessScoreRing component so it is always visible on the Dashboard and Skill Gap pages. The ring must render the score percentage and SVG ring at all times — including when the user has no study plan (display 0%), when the query is loading (show a skeleton), and when a backend error occurs (fall back to 0% silently without showing an error message). Remove any error boundary or conditional rendering path that hides the ring or shows 'Something went wrong. Please try again.'",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/dashboard/ReadinessScoreRing.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/dashboard/ReadinessScoreRing.tsx"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Audit the `getReadinessScore` backend function in `backend/main.mo` to ensure it never traps or throws under any authenticated user scenario. It must return 0 as a Nat when the user has no profile, no study plan, or an empty task list. Add defensive null/empty checks for all intermediate data access paths.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-20",
+        "summary": "In `useQueries.ts`, update the `useGetReadinessScore` React Query hook so that any thrown error or rejected promise from the backend is caught and resolved as 0 rather than propagating to an error state. Set `retry: false` and use an `onError` or `select` handler to default to 0 on failure.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/dashboard/ReadinessScoreRing.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/SkillGapPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

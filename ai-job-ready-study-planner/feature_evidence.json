@@ -1,0 +1,43 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-fix-the-readinessscorering-component-so-it-is-always-visible-on-the-dashboard-and-skill-gap-pages-the-ring-must-render-the-score-percentage-and-svg-ring-at-all-times-including-when-the-user-has-no-study-plan-display-0-when-the-query-is-loading-show-a-skeleton-and-when-a-backend-error-occurs-fall-back-to-0-silently-without-showing-an-error-message-remove-any-error-boundary-or-conditional-rendering-path-that-hides-the-ring-or-shows-something-went-wrong-please-try-again",
+      "featureTitle": "Fix the ReadinessScoreRing component so it is always visible on the Dashboard and Skill Gap pages. The ring must render the score percentage and SVG ring at all times — including when the user has no study plan (display 0%), when the query is loading (show a skeleton), and when a backend error occurs (fall back to 0% silently without showing an error message). Remove any error boundary or conditional rendering path that hides the ring or shows 'Something went wrong. Please try again.'",
+      "files": [
+        "frontend/src/components/dashboard/ReadinessScoreRing.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-usequeries-ts-update-the-usegetreadinessscore-react-query-hook-so-that-any-thrown-error-or-rejected-promise-from-the-backend-is-caught-and-resolved-as-0-rather-than-propagating-to-an-error-state-set-retry-false-and-use-an-onerror-or-select-handler-to-default-to-0-on-failure",
+      "featureTitle": "In `useQueries.ts`, update the `useGetReadinessScore` React Query hook so that any thrown error or rejected promise from the backend is caught and resolved as 0 rather than propagating to an error state. Set `retry: false` and use an `onError` or `select` handler to default to 0 on failure.",
+      "files": [
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
